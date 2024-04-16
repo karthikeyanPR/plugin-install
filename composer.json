@@ -1,0 +1,48 @@
+{
+  "name": "karthikeyanPR/plugin-install",
+  "description": "",
+  "type": "wordpress-plugin",
+  "license": "GPL v3 or later",
+  "autoload": {
+    "psr-4": {
+      "PernodRicard\\PrAthenaDashboard\\": "includes/",
+      "PernodRicard\\PrAthenaDashboard\\Tests\\": "tests/phpunit/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Pernod-Picard",
+      "email": "Karthikeyan.Govindan-ext@pernod-ricard.com"
+    }
+  ],
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "minimum-stability": "dev",
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*",
+    "wp-coding-standards/wpcs": "dev-develop",
+    "phpcompatibility/php-compatibility": "^9.0",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "phpunit/phpunit": "^9.5",
+    "wp-phpunit/wp-phpunit": "dev-master",
+    "yoast/phpunit-polyfills": "1.x-dev"
+  },
+  "scripts": {
+    "phpcs": [
+      "vendor/bin/phpcs -p -s"
+    ],
+    "phpcs:fix": [
+      "vendor/bin/phpcbf -p"
+    ],
+    "test": [
+      "vendor/bin/phpunit --bootstrap tests/phpunit/bootstrap.php tests/phpunit/"
+    ],
+    "test:all": [
+      "vendor/bin/phpcs -p -s && vendor/bin/phpunit --bootstrap tests/phpunit/bootstrap.php tests/phpunit/"
+    ]
+  },
+  "require": {}
+}
